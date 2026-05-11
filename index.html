@@ -242,8 +242,8 @@
 
   object-fit: cover;
 
-  /* MAIN FIX */
-  object-position: center center;
+  /* CHANGE THIS TO ADJUST IMAGE */
+  object-position: center top;
 
   border-radius: 30px;
 
@@ -251,7 +251,6 @@
     transform 0.45s ease,
     filter 0.45s ease;
 
-  /* REMOVE OVER ZOOM */
   transform: scale(1);
 
   filter:
@@ -260,7 +259,7 @@
 }
 
 /* =========================
-   HOVER
+   HOVER EFFECT
 ========================= */
 
 .photo-frame:hover {
@@ -296,7 +295,7 @@
     linear-gradient(
       to top,
       rgba(0,0,0,0.18),
-      rgba(0,0,0,0.04) 40%,
+      rgba(0,0,0,0.03) 45%,
       transparent
     );
 
@@ -1013,16 +1012,17 @@
         </div>
       </div>
 
-          <div class="hero-visual reveal" style="transition-delay:0.15s">
-            <div class="photo-frame"
-        
-          <div class="photo-border"></div>
-          <img src="./profile.png" alt="Rishit Manchhani" />
-            <div class="hero-visual reveal" 
-          
-          </div>
-      </div>
-    </div>
+        <!-- HERO VISUAL -->
+
+<div class="hero-visual reveal" style="transition-delay:0.15s">
+
+  <div class="photo-frame">
+
+    <img src="./profile.png" alt="Rishit Manchhani" />
+
+  </div>
+
+</div>
   </section>
 
   <div class="divider"></div>
