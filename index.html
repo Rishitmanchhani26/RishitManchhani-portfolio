@@ -192,15 +192,8 @@
       transform: translateY(-3px);
     }
 
-    /* Hero photo */
-  /* HERO VISUAL */
-.hero-visual {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
 /* =========================
-   HERO IMAGE WRAPPER
+   HERO VISUAL
 ========================= */
 
 .hero-visual {
@@ -217,25 +210,24 @@
 .photo-frame {
   position: relative;
 
-  width: 340px;
-  height: 420px;
+  width: 360px;
+  height: 460px;
 
   overflow: hidden;
 
-  border-radius: 32px;
+  border-radius: 30px;
 
-  background: #111;
+  background: #0f0f0f;
 
   border: 1px solid rgba(255,255,255,0.06);
 
   box-shadow:
-    0 20px 50px rgba(0,0,0,0.45),
-    0 0 0 1px rgba(255,255,255,0.03);
+    0 20px 60px rgba(0,0,0,0.45);
 
   transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    border-color 0.45s ease;
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
 /* =========================
@@ -243,84 +235,53 @@
 ========================= */
 
 .photo-frame img {
-  position: absolute;
-
-  inset: 0;
-
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
-  object-position: center top;
-
   display: block;
 
-  z-index: 2;
+  object-fit: cover;
 
-  border-radius: 32px;
+  /* MAIN FIX */
+  object-position: center center;
+
+  border-radius: 30px;
 
   transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
+    transform 0.45s ease,
+    filter 0.45s ease;
 
-  /* REMOVE EXTRA ZOOM */
-  transform: scale(1.02);
+  /* REMOVE OVER ZOOM */
+  transform: scale(1);
 
   filter:
-    grayscale(5%)
-    contrast(1.03)
+    contrast(1.02)
     brightness(0.98);
 }
 
 /* =========================
-   HOVER EFFECT
+   HOVER
 ========================= */
 
 .photo-frame:hover {
   transform: translateY(-6px);
 
-  border-color: rgba(232,255,71,0.15);
+  border-color: rgba(232,255,71,0.12);
 
   box-shadow:
-    0 28px 70px rgba(0,0,0,0.55),
-    0 0 0 1px rgba(232,255,71,0.05);
+    0 30px 80px rgba(0,0,0,0.55);
 }
 
 .photo-frame:hover img {
-  transform: scale(1.06);
+  transform: scale(1.03);
 
   filter:
-    grayscale(0%)
     contrast(1.05)
     brightness(1);
 }
 
 /* =========================
-   GLOW DOT
-========================= */
-
-/*.photo-dot {
-  position: absolute;
-
-  bottom: -18px;
-  right: -18px;
-
-  width: 95px;
-  height: 95px;
-
-  background: var(--accent);
-
-  border-radius: 50%;
-
-  opacity: 0.14;
-
-  filter: blur(10px);
-
-  z-index: 0;
-}
-
-/* =========================
-   OPTIONAL OVERLAY
+   OVERLAY
 ========================= */
 
 .photo-frame::after {
@@ -329,23 +290,21 @@
   position: absolute;
   inset: 0;
 
-  border-radius: 32px;
+  border-radius: 30px;
 
   background:
     linear-gradient(
       to top,
       rgba(0,0,0,0.18),
-      rgba(0,0,0,0.02) 40%,
+      rgba(0,0,0,0.04) 40%,
       transparent
     );
-
-  z-index: 3;
 
   pointer-events: none;
 }
 
 /* =========================
-   MOBILE RESPONSIVE
+   MOBILE
 ========================= */
 
 @media (max-width: 768px) {
@@ -353,20 +312,15 @@
   .photo-frame {
     width: 290px;
     height: 360px;
-    border-radius: 26px;
+    border-radius: 24px;
   }
 
   .photo-frame img {
-    border-radius: 26px;
+    border-radius: 24px;
   }
 
   .photo-frame::after {
-    border-radius: 26px;
-  }
-
-  .photo-dot {
-    width: 75px;
-    height: 75px;
+    border-radius: 24px;
   }
 }
 
