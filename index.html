@@ -191,136 +191,76 @@
       color: var(--accent);
       transform: translateY(-3px);
     }
-
-/* =========================
-   HERO VISUAL
-========================= */
-
+ /* HERO VISUAL */
 .hero-visual {
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
 }
-
-/* =========================
-   PHOTO FRAME
-========================= */
-
+/* P/* PHOTO FRAME */
 .photo-frame {
   position: relative;
-
-  width: 360px;
-  height: 460px;
+  width: 340px;
+  height: 420px;
 
   overflow: hidden;
+  border-radius: 32px;
 
-  border-radius: 30px;
-
-  background: #0f0f0f;
-
-  border: 1px solid rgba(255,255,255,0.06);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.45);
-
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+  background: #111;
 }
 
-/* =========================
-   IMAGE
-========================= */
-
+/* IMAGE */
 .photo-frame img {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
   width: 100%;
   height: 100%;
 
-  display: block;
-
   object-fit: cover;
 
-  /* CHANGE THIS TO ADJUST IMAGE */
-  object-position: center top;
+  /* THIS MAKES IMAGE FULLY COVER */
+  transform: translate(-50%, -50%) scale(1.15);
 
-  border-radius: 30px;
+  border-radius: 32px;
+
+  display: block;
+
+  z-index: 2;
 
   transition:
-    transform 0.45s ease,
-    filter 0.45s ease;
+    transform 0.4s ease,
+    filter 0.4s ease;
 
-  transform: scale(1);
-
-  filter:
-    contrast(1.02)
-    brightness(0.98);
+  filter: grayscale(10%);
 }
 
-/* =========================
-   HOVER EFFECT
-========================= */
-
-.photo-frame:hover {
-  transform: translateY(-6px);
-
-  border-color: rgba(232,255,71,0.12);
-
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.55);
-}
-
+/* HOVER */
 .photo-frame:hover img {
-  transform: scale(1.03);
-
-  filter:
-    contrast(1.05)
-    brightness(1);
+  transform: translate(-50%, -50%) scale(1.18);
+  filter: grayscale(0%);
 }
-
-/* =========================
-   OVERLAY
-========================= */
-
-.photo-frame::after {
-  content: '';
-
+/* GLOW DOT */
+.photo-dot {
   position: absolute;
-  inset: 0;
 
-  border-radius: 30px;
+  bottom: -20px;
+  right: -20px;
 
-  background:
-    linear-gradient(
-      to top,
-      rgba(0,0,0,0.18),
-      rgba(0,0,0,0.03) 45%,
-      transparent
-    );
+  width: 90px;
+  height: 90px;
 
-  pointer-events: none;
-}
+  background: var(--accent);
 
-/* =========================
-   MOBILE
-========================= */
+  border-radius: 50%;
 
-@media (max-width: 768px) {
+  z-index: 0;
 
-  .photo-frame {
-    width: 290px;
-    height: 360px;
-    border-radius: 24px;
-  }
+  opacity: 0.12;
 
-  .photo-frame img {
-    border-radius: 24px;
-  }
-
-  .photo-frame::after {
-    border-radius: 24px;
-  }
+  filter: blur(4px);
 }
 
 /* STATUS BADGE */
@@ -441,6 +381,7 @@
       background: var(--border);
       margin: 0;
     }
+    
 
     /* ── ABOUT ── */
     #about { background: var(--surface); }
