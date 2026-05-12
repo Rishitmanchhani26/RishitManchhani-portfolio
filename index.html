@@ -284,46 +284,8 @@
   z-index: 0;
 }
 
-/* STATUS BADGE */
-.status-badge {
-  position: absolute;
 
-  top: 18px;
-  right: -20px;
 
-  background: rgba(20,20,20,0.9);
-
-  backdrop-filter: blur(10px);
-
-  border: 1px solid var(--border);
-
-  border-radius: 100px;
-
-  padding: 8px 16px;
-
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-
-  color: var(--accent2);
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  z-index: 5;
-}
-
-/* STATUS DOT */
-.status-dot {
-  width: 7px;
-  height: 7px;
-
-  background: var(--accent2);
-
-  border-radius: 50%;
-
-  animation: pulse 2s infinite;
-}
 
 /* PULSE */
 @keyframes pulse {
@@ -984,12 +946,8 @@
 
     <img src="./profile.png" alt="Rishit Manchhani" />
 
-  </div>
-
+    <div class="photo-dot"></div>
 </div>
-  </section>
-
-  <div class="divider"></div>
 
   <!-- ABOUT -->
   <section id="about">
