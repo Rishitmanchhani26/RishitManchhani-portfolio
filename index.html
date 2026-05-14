@@ -592,75 +592,191 @@ section{border-bottom:1px solid var(--rule)}
 
 /* ════════════════════════════════════════
    PROJECTS
-════════════════════════════════════════ */
-#projects{background:var(--cream)}
-.projects-list{}
-.proj-item{
+/* ========================================
+   PROJECTS
+======================================== */
+
+#projects{
+  background:#050505;
+  padding:140px 0;
+}
+
+.projects-grid{
   display:grid;
-  grid-template-columns:56px 1fr auto;
-  gap:32px;
-  align-items:center;
-  padding:28px 0;
-  border-bottom:1px solid var(--rule);
-  transition:background .15s;
-  cursor:default;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:70px;
 }
-.proj-item:first-child{border-top:1px solid var(--rule);margin-top:8px}
-.proj-item:hover{background:rgba(255,255,255,0.025)}
-.proj-n{
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:clamp(20px,2.5vw,28px);
-  color:var(--rule);
-  letter-spacing:-0.02em;
+
+.project-card{
+  position:relative;
+  background:#0a0a0a;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:30px;
+  padding:38px;
+  min-height:420px;
+
+  display:flex;
+  flex-direction:column;
+
+  overflow:hidden;
+  transition:all .35s ease;
 }
-.proj-content{}
-.proj-name{
-  font-family:var(--sans);
-  font-size:clamp(14px,1.5vw,17px);
-  font-weight:500;
-  color:var(--ink);
-  margin-bottom:5px;
-  letter-spacing:-0.01em;
+
+.project-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,0.16);
 }
-.proj-desc{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.6;
-  max-width:600px;
-  margin-bottom:10px;
+
+.project-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left,
+    rgba(255,255,255,0.04),
+    transparent 45%);
+  opacity:0;
+  transition:opacity .35s ease;
 }
-.proj-chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{
+
+.project-card:hover::before{
+  opacity:1;
+}
+
+.featured{
+  grid-column:span 2;
+
+  background:
+    radial-gradient(circle at top left,
+    rgba(172,255,80,0.08),
+    transparent 45%),
+    #0a0a0a;
+}
+
+.project-top{
   font-family:var(--mono);
-  font-size:9px;
-  letter-spacing:0.08em;
+  font-size:11px;
+  letter-spacing:.18em;
   text-transform:uppercase;
-  color:var(--muted);
-  border:1px solid var(--rule);
-  border-radius:2px;
-  padding:3px 8px;
-  background:rgba(26,26,24,0.03);
-  transition:all .15s;
+  color:#7d7d7d;
+  margin-bottom:28px;
 }
-.chip:hover{color:#080808;background:#EBEBEB;border-color:#EBEBEB}
-.proj-link{
+
+.project-title{
+  font-size:clamp(28px,3vw,46px);
+  line-height:1;
+  font-weight:600;
+  color:#f5f5f5;
+  margin-bottom:24px;
+  letter-spacing:-0.04em;
+}
+
+.project-desc{
+  font-size:16px;
+  line-height:1.8;
+  color:#9d9d9d;
+  margin-bottom:40px;
+  max-width:90%;
+}
+
+.project-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:auto;
+  margin-bottom:26px;
+}
+
+.project-tags span{
   font-family:var(--mono);
   font-size:10px;
-  letter-spacing:0.08em;
+  letter-spacing:.08em;
   text-transform:uppercase;
-  color:var(--muted);
-  display:flex;align-items:center;gap:6px;
-  white-space:nowrap;
-  padding:10px 16px;
-  border:1px solid var(--rule);
-  border-radius:2px;
-  transition:all .2s;
-}
-.proj-link:hover{color:#EBEBEB;border-color:#EBEBEB}
-.proj-link svg{width:10px;height:10px;transition:transform .2s}
-.proj-link:hover svg{transform:translate(2px,-2px)}
 
+  padding:10px 14px;
+
+  border-radius:10px;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  background:rgba(255,255,255,0.03);
+
+  color:#cfcfcf;
+
+  transition:all .2s ease;
+}
+
+.project-tags span:hover{
+  background:#f5f5f5;
+  color:#080808;
+}
+
+.project-link,
+.project-private{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  color:#f5f5f5;
+
+  text-decoration:none;
+}
+
+.project-link{
+  transition:transform .2s ease;
+}
+
+.project-link:hover{
+  transform:translateX(4px);
+}
+
+.project-private{
+  opacity:.4;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .featured{
+    grid-column:span 1;
+  }
+
+  .project-card{
+    min-height:auto;
+  }
+
+  .project-title{
+    font-size:32px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  #projects{
+    padding:100px 0;
+  }
+
+  .project-card{
+    padding:28px;
+    border-radius:24px;
+  }
+
+  .project-desc{
+    max-width:100%;
+    font-size:15px;
+  }
+
+}
 /* ════════════════════════════════════════
    SKILLS — minimal table
 ════════════════════════════════════════ */
@@ -1112,111 +1228,222 @@ Been Building</em></h2>
   </div>
 </section>
 
-<!-- ──────────────────── PROJECTS ──────────────────── -->
 <section id="projects">
   <div class="container">
+
     <div class="section-head r">
       <span class="s-index">03</span>
-      <h2 class="s-title">Things I Built
- <em>While Learning</em></h2>
+
+      <h2 class="s-title">
+        Things I Built
+        <em>While Learning</em>
+      </h2>
     </div>
-    <div class="projects-list">
 
-      <div class="proj-item r">
-        <div class="proj-n">01</div>
-        <div class="proj-content">
-          <div class="proj-name">KU College Chatbot</div>
-          <p class="proj-desc">RAG-powered chatbot for Karnavati University handling student and staff queries with context-accurate responses grounded in real institutional documents. Deployed live on Vercel.</p>
-          <div class="proj-chips">
-            <span class="chip">LangChain</span><span class="chip">RAG</span><span class="chip">OpenAI API</span><span class="chip">Vercel</span>
-          </div>
+    <div class="projects-grid">
+
+      <!-- FEATURED -->
+      <article class="project-card featured r">
+
+        <span class="project-top">01 — FEATURED</span>
+
+        <h3 class="project-title">
+          KU College Chatbot
+        </h3>
+
+        <p class="project-desc">
+          RAG-powered chatbot for Karnavati University handling
+          student and staff queries using institutional documents,
+          FAQs, and notices with context-aware responses.
+        </p>
+
+        <div class="project-tags">
+          <span>LangChain</span>
+          <span>RAG</span>
+          <span>OpenAI API</span>
+          <span>Vercel</span>
         </div>
-        <a href="https://ku-project.vercel.app" target="_blank" class="proj-link">
-          Live ↗
-          <svg viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+
+        <a href="https://ku-project.vercel.app"
+           target="_blank"
+           class="project-link">
+          Live Demo →
         </a>
-      </div>
 
-      <div class="proj-item r">
-        <div class="proj-n">02</div>
-        <div class="proj-content">
-          <div class="proj-name">Voice AI Customer Support Agent</div>
-          <p class="proj-desc">ElevenLabs-powered inbound voice agent handling FAQs, appointment booking, and queries autonomously 24/7 with dynamic conversation flows and Google Calendar integration. Deployed live via Twilio.</p>
-          <div class="proj-chips">
-            <span class="chip">ElevenLabs</span><span class="chip">OpenAI</span><span class="chip">n8n</span><span class="chip">Twilio</span>
-          </div>
-        </div>
-        <div class="proj-link" style="opacity:.3;cursor:default">Private</div>
-      </div>
+      </article>
 
-      <div class="proj-item r">
-        <div class="proj-n">03</div>
-        <div class="proj-content">
-          <div class="proj-name">AI Invoice & Receipt Processor</div>
-          <p class="proj-desc">Upload any invoice or receipt — agent extracts vendor, amount, date, and category, auto-logs to Google Sheets, and flags anomalies. Replaced a fully manual bookkeeping process at Tagmark.</p>
-          <div class="proj-chips">
-            <span class="chip">OpenAI Vision</span><span class="chip">n8n</span><span class="chip">Google Sheets</span><span class="chip">Python</span>
-          </div>
+      <!-- 02 -->
+      <article class="project-card r">
+
+        <span class="project-top">02</span>
+
+        <h3 class="project-title">
+          Voice AI Customer Support Agent
+        </h3>
+
+        <p class="project-desc">
+          AI voice agent handling FAQs, appointment booking,
+          and customer queries autonomously with Twilio and
+          ElevenLabs integration.
+        </p>
+
+        <div class="project-tags">
+          <span>ElevenLabs</span>
+          <span>OpenAI</span>
+          <span>n8n</span>
+          <span>Twilio</span>
         </div>
-        <a href="https://github.com/Rishitmanchhani26/AI-Invoice" target="_blank" class="proj-link">
-          GitHub ↗
-          <svg viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+
+        <div class="project-private">
+          Private
+        </div>
+
+      </article>
+
+      <!-- 03 -->
+      <article class="project-card r">
+
+        <span class="project-top">03</span>
+
+        <h3 class="project-title">
+          AI Invoice & Receipt Processor
+        </h3>
+
+        <p class="project-desc">
+          AI-powered invoice processor extracting vendor,
+          amount, and category from receipts and automatically
+          logging entries into Google Sheets.
+        </p>
+
+        <div class="project-tags">
+          <span>OpenAI Vision</span>
+          <span>n8n</span>
+          <span>Google Sheets</span>
+          <span>Python</span>
+        </div>
+
+        <a href="https://github.com/Rishitmanchhani26/AI-Invoice"
+           target="_blank"
+           class="project-link">
+          GitHub →
         </a>
-      </div>
 
-      <div class="proj-item r">
-        <div class="proj-n">04</div>
-        <div class="proj-content">
-          <div class="proj-name">Local Keyboard Prompt Builder</div>
-          <p class="proj-desc">Productivity tool inside the device keyboard — select any text anywhere, get a pop-up to convert it into a structured AI prompt or fix grammar. Runs entirely locally via Ollama. Zero data sent to cloud.</p>
-          <div class="proj-chips">
-            <span class="chip">Ollama</span><span class="chip">Local LLM</span><span class="chip">Python</span>
-          </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="project-card r">
+
+        <span class="project-top">04</span>
+
+        <h3 class="project-title">
+          Local Keyboard Prompt Builder
+        </h3>
+
+        <p class="project-desc">
+          Productivity tool that converts selected text into
+          structured AI prompts locally using Ollama with
+          zero cloud dependency.
+        </p>
+
+        <div class="project-tags">
+          <span>Ollama</span>
+          <span>Local LLM</span>
+          <span>Python</span>
         </div>
-        <a href="https://github.com/Rishitmanchhani26/local-promptbuilder" target="_blank" class="proj-link">
-          GitHub ↗
-          <svg viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+
+        <a href="https://github.com/Rishitmanchhani26/local-promptbuilder"
+           target="_blank"
+           class="project-link">
+          GitHub →
         </a>
-      </div>
 
-      <div class="proj-item r">
-        <div class="proj-n">05</div>
-        <div class="proj-content">
-          <div class="proj-name">AI Research Agent — Multi-Format</div>
-          <p class="proj-desc">Autonomous agent scraping real-time news and web sources on any topic. Delivers output as written summary, short-form video, or audio — fully end-to-end, no manual intervention.</p>
-          <div class="proj-chips">
-            <span class="chip">LangChain</span><span class="chip">OpenAI</span><span class="chip">Web Scraping</span><span class="chip">TTS</span>
-          </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="project-card r">
+
+        <span class="project-top">05</span>
+
+        <h3 class="project-title">
+          AI Research Agent — Multi-Format
+        </h3>
+
+        <p class="project-desc">
+          Autonomous research agent scraping real-time web
+          sources and generating written summaries,
+          short-form videos, and audio outputs.
+        </p>
+
+        <div class="project-tags">
+          <span>LangChain</span>
+          <span>OpenAI</span>
+          <span>Web Scraping</span>
+          <span>TTS</span>
         </div>
-        <a href="https://github.com/Rishitmanchhani26/Real-time-Research" target="_blank" class="proj-link">
-          GitHub ↗
-          <svg viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+
+        <a href="https://github.com/Rishitmanchhani26/Real-time-Research"
+           target="_blank"
+           class="project-link">
+          GitHub →
         </a>
-      </div>
 
-      <div class="proj-item r">
-        <div class="proj-n">06</div>
-        <div class="proj-content">
-          <div class="proj-name">WhatsApp Business AI Agent</div>
-          <p class="proj-desc">WhatsApp-native AI agent for a small business — answers product questions, takes orders, confirms bookings, sends follow-ups. Fully automated end-to-end with n8n and WhatsApp Business API.</p>
-          <div class="proj-chips">
-            <span class="chip">n8n</span><span class="chip">WhatsApp API</span><span class="chip">OpenAI</span><span class="chip">Google Sheets</span>
-          </div>
-        </div>
-        <div class="proj-link" style="opacity:.3;cursor:default">Private</div>
-      </div>
+      </article>
 
-      <div class="proj-item r">
-        <div class="proj-n">07</div>
-        <div class="proj-content">
-          <div class="proj-name">AI Content Repurposing Pipeline</div>
-          <p class="proj-desc">Takes a single blog post or transcript and generates platform-ready content for LinkedIn, Twitter/X, Instagram, and email — each formatted to platform tone and length. Ready to publish.</p>
-          <div class="proj-chips">
-            <span class="chip">n8n</span><span class="chip">OpenAI API</span><span class="chip">Airtable</span><span class="chip">Social APIs</span>
-          </div>
+      <!-- 06 -->
+      <article class="project-card r">
+
+        <span class="project-top">06</span>
+
+        <h3 class="project-title">
+          WhatsApp Business AI Agent
+        </h3>
+
+        <p class="project-desc">
+          WhatsApp-native AI assistant handling product
+          queries, bookings, follow-ups, and customer
+          communication automatically.
+        </p>
+
+        <div class="project-tags">
+          <span>n8n</span>
+          <span>WhatsApp API</span>
+          <span>OpenAI</span>
+          <span>Google Sheets</span>
         </div>
-        <div class="proj-link" style="opacity:.3;cursor:default">Private</div>
-      </div>
+
+        <div class="project-private">
+          Private
+        </div>
+
+      </article>
+
+      <!-- 07 -->
+      <article class="project-card r">
+
+        <span class="project-top">07</span>
+
+        <h3 class="project-title">
+          AI Content Repurposing Pipeline
+        </h3>
+
+        <p class="project-desc">
+          Converts one blog or transcript into optimized
+          LinkedIn, X, Instagram, and email content
+          automatically for multi-platform publishing.
+        </p>
+
+        <div class="project-tags">
+          <span>n8n</span>
+          <span>OpenAI API</span>
+          <span>Airtable</span>
+          <span>Social APIs</span>
+        </div>
+
+        <div class="project-private">
+          Private
+        </div>
+
+      </article>
 
     </div>
   </div>
