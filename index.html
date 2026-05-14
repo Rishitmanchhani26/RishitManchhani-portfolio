@@ -330,12 +330,16 @@ section{border-bottom:1px solid var(--rule)}
   margin-top:40px;
   border-top:1px solid var(--rule);
 }
+
 .kv-row{
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:13px 0;
   border-bottom:1px solid var(--rule);
   font-size:13.5px;
 }
+
 .kv-k{
   font-family:var(--mono);
   font-size:10px;
@@ -343,10 +347,17 @@ section{border-bottom:1px solid var(--rule)}
   text-transform:uppercase;
   color:var(--muted);
 }
+
 .kv-v{
   color:var(--ink);
   font-size:13.5px;
-  font-family:inherit;
+  font-family:var(--sans);
+  font-weight:400;
+}
+
+.kv-v a{
+  color:inherit;
+  text-decoration:none;
 }
 
 .kv-v a:hover{
@@ -355,13 +366,16 @@ section{border-bottom:1px solid var(--rule)}
   text-underline-offset:3px;
 }
 
+/* Availability tag */
 .kv-v.avail-v{
+  color:var(--ink);
   font-size:13.5px;
-  color:#EBEBEB;
-  background:rgba(255,255,255,0.06);
-  padding:3px 10px;
-  border-radius:100px;
-  font-family:inherit;
+  font-family:var(--sans);
+  font-weight:400;
+
+  background:none;
+  padding:0;
+  border-radius:0;
   letter-spacing:normal;
 }
 /* TV / Monitor Frame */
@@ -989,9 +1003,9 @@ footer{
             <span class="kv-v">BSc CS (AI/ML) — Karnavati University</span>
           </div>
           <div class="kv-row">
-            <span class="kv-k">Availability</span>
-            <span class="kv-v avail-v">Immediately available</span>
-          </div>
+  <span class="kv-k">Availability</span>
+  <span class="kv-v avail-v">Immediately available</span>
+</div>
           <div class="kv-row">
             <span class="kv-k">Email</span>
             <span class="kv-v"><a href="mailto:manchhanirishit564@gmail.com">manchhanirishit564@gmail.com</a></span>
