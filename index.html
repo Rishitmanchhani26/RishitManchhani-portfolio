@@ -515,20 +515,59 @@ section{border-bottom:1px solid var(--rule)}
 /* ════════════════════════════════════════
    EXPERIENCE
 ════════════════════════════════════════ */
-#experience{background:var(--paper)}
+
+#experience{
+  background:var(--paper);
+}
+
 .exp-rows{}
+
+/* EXPERIENCE CARD */
 .exp-row{
   display:grid;
   grid-template-columns:200px 1fr 120px;
   gap:40px;
   align-items:start;
-  padding:40px 0;
+
+  padding:42px 28px;
+
   border-bottom:1px solid var(--rule);
-  transition:background .2s;
+
+  border-radius:22px;
+
+  transition:
+    background .28s ease,
+    padding .28s ease,
+    border-color .28s ease,
+    transform .28s ease,
+    box-shadow .28s ease;
 }
-.exp-row:first-child{border-top:1px solid var(--rule);margin-top:8px}
-.exp-row:hover{background:rgba(255,255,255,0.025)}
+
+/* FIRST ROW */
+.exp-row:first-child{
+  border-top:1px solid var(--rule);
+  margin-top:8px;
+}
+
+/* HOVER EFFECT */
+.exp-row:hover{
+  background:rgba(255,255,255,0.035);
+
+  padding-left:40px;
+  padding-right:40px;
+
+  border-color:rgba(255,255,255,0.14);
+
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.22);
+}
+
+/* LEFT META */
 .exp-meta{}
+
+/* DATE */
 .exp-date{
   font-family:var(--mono);
   font-size:10px;
@@ -537,59 +576,134 @@ section{border-bottom:1px solid var(--rule)}
   margin-bottom:8px;
   text-transform:uppercase;
 }
+
+/* BADGE */
 .exp-badge{
   display:inline-block;
-  padding:3px 10px;
-  background:rgba(26,26,24,0.06);
-  border:1px solid var(--rule);
-  border-radius:2px;
+
+  padding:5px 12px;
+
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.10);
+
+  border-radius:8px;
+
   font-family:var(--mono);
   font-size:9px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--muted);
-}
-.exp-body{}
-.exp-role{
-  font-family:var(--serif);
-  font-size:clamp(18px,2vw,22px);
-  letter-spacing:-0.01em;
-  margin-bottom:4px;
-}
-.exp-co{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:0.06em;
-  color:var(--ink2);
-  text-transform:uppercase;
-  margin-bottom:16px;
-}
-.exp-pts{list-style:none;display:flex;flex-direction:column;gap:8px}
-.exp-pts li{
-  font-size:13.5px;
-  color:var(--muted);
-  line-height:1.65;
-  padding-left:16px;
-  position:relative;
-}
-.exp-pts li::before{
-  content:'';
-  position:absolute;left:0;top:9px;
-  width:5px;height:1px;
-  background:var(--muted);
-}
-.exp-num{
-  font-family:var(--serif);
-  font-size:clamp(40px,5vw,64px);
-  color:var(--rule);
-  line-height:1;
-  text-align:right;
-  align-self:start;
-  padding-top:4px;
-  letter-spacing:-0.03em;
-  user-select:none;
+
+  color:#D5D5D5;
+
+  transition:all .2s ease;
 }
 
+.exp-row:hover .exp-badge{
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.16);
+}
+
+/* BODY */
+.exp-body{}
+
+/* ROLE */
+.exp-role{
+  font-family:var(--serif);
+  font-size:clamp(20px,2vw,24px);
+
+  letter-spacing:-0.01em;
+
+  margin-bottom:6px;
+
+  color:var(--ink);
+}
+
+/* COMPANY */
+.exp-co{
+  font-family:var(--mono);
+
+  font-size:11px;
+
+  letter-spacing:0.08em;
+
+  color:var(--ink2);
+
+  text-transform:uppercase;
+
+  margin-bottom:18px;
+}
+
+/* POINTS */
+.exp-pts{
+  list-style:none;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.exp-pts li{
+  font-size:14px;
+
+  color:var(--muted);
+
+  line-height:1.75;
+
+  padding-left:18px;
+
+  position:relative;
+
+  transition:color .2s ease;
+}
+
+.exp-row:hover .exp-pts li{
+  color:#CFCFCF;
+}
+
+/* BULLET */
+.exp-pts li::before{
+  content:'';
+
+  position:absolute;
+
+  left:0;
+  top:11px;
+
+  width:6px;
+  height:1px;
+
+  background:rgba(255,255,255,0.35);
+}
+
+/* RIGHT NUMBER */
+.exp-num{
+  font-family:var(--serif);
+
+  font-size:clamp(40px,5vw,64px);
+
+  color:rgba(255,255,255,0.10);
+
+  line-height:1;
+
+  text-align:right;
+
+  align-self:start;
+
+  padding-top:4px;
+
+  letter-spacing:-0.03em;
+
+  user-select:none;
+
+  transition:all .25s ease;
+}
+
+.exp-row:hover .exp-num{
+  color:rgba(255,255,255,0.18);
+  transform:translateX(-4px);
+}
 /* ════════════════════════════════════════
    PROJECTS
 /* ========================================
