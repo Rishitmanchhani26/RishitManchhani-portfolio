@@ -343,14 +343,26 @@ section{border-bottom:1px solid var(--rule)}
   text-transform:uppercase;
   color:var(--muted);
 }
-.kv-v{color:var(--ink)}
-.kv-v a:hover{color:var(--warm);text-decoration:underline;text-underline-offset:3px}
+.kv-v{
+  color:var(--ink);
+  font-size:13.5px;
+  font-family:inherit;
+}
+
+.kv-v a:hover{
+  color:var(--warm);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
 .kv-v.avail-v{
-  font-size:12px;
+  font-size:13.5px;
   color:#EBEBEB;
   background:rgba(255,255,255,0.06);
-  padding:3px 10px;border-radius:100px;
-  font-family:var(--mono);letter-spacing:0.04em;
+  padding:3px 10px;
+  border-radius:100px;
+  font-family:inherit;
+  letter-spacing:normal;
 }
 /* TV / Monitor Frame */
 .tv-wrap{
@@ -972,7 +984,7 @@ footer{
             <span class="kv-k">Location</span>
             <span class="kv-v">Ahmedabad, Gujarat, India</span>
           </div>
-          <div class="kv-row">
+          <div class="kv-row">  
             <span class="kv-k">Education</span>
             <span class="kv-v">BSc CS (AI/ML) — Karnavati University</span>
           </div>
